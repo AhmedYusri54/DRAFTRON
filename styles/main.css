@@ -93,6 +93,21 @@ section[data-testid="stSidebar"] div[data-testid="stMarkdownContainer"] * {
     color: var(--slate-800) !important;
 }
 
+/* Restore link styling inside sidebar (overrides the broad color rule above) */
+section[data-testid="stSidebar"] a,
+section[data-testid="stSidebar"] div[data-testid="stMarkdownContainer"] a {
+    color: var(--primary-600) !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+}
+
+section[data-testid="stSidebar"] a:hover,
+section[data-testid="stSidebar"] div[data-testid="stMarkdownContainer"] a:hover {
+    color: var(--primary-700) !important;
+    text-decoration: underline !important;
+}
+
 /* ─── Header Banner ─── */
 .header-banner {
     background: var(--header-gradient);
@@ -540,6 +555,66 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] > button:hover {
     border: 1px dashed var(--indigo-300);
 }
 
+/* ─── Feedback Revision Log ─── */
+.fb-history-item {
+    background: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.fb-round {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--indigo-600) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.fb-text {
+    font-size: 0.88rem;
+    color: var(--slate-700) !important;
+    line-height: 1.5;
+}
+
+/* ─── Global Main Content Text Color Lock ─── */
+/* Prevents Streamlit Cloud's dark/custom theme from turning any
+   markdown text white in the main content area */
+div[data-testid="stMainBlockContainer"] *,
+div[data-testid="block-container"] * {
+    color: inherit;
+}
+
+div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"],
+div[data-testid="block-container"] div[data-testid="stMarkdownContainer"] {
+    color: var(--slate-800) !important;
+}
+
+div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] h1,
+div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] h2,
+div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] h3,
+div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] h4,
+div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] h5,
+div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] p,
+div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] li,
+div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] span {
+    color: var(--slate-800) !important;
+}
+
+/* ─── Expander styling ─── */
+/* Target both old and new Streamlit expander header selectors */
+.streamlit-expanderHeader,
+div[data-testid="stExpander"] summary,
+div[data-testid="stExpander"] summary p,
+div[data-testid="stExpander"] summary span {
+    font-weight: 700 !important;
+    font-size: 0.92rem !important;
+    color: var(--slate-800) !important;
+    border-radius: 8px !important;
+}
+
 /* ─── Streamlit Widget Overrides ─── */
 .stTextArea textarea {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
@@ -611,14 +686,6 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] > button:hover {
 .stDownloadButton > button:hover {
     transform: translateY(-2px) !important;
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35) !important;
-}
-
-/* Expander styling */
-.streamlit-expanderHeader {
-    font-weight: 700 !important;
-    font-size: 0.92rem !important;
-    color: var(--slate-800) !important;
-    border-radius: 8px !important;
 }
 
 /* Footer */
