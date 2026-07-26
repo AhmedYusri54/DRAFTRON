@@ -156,14 +156,14 @@ section[data-testid="stSidebar"] div[data-testid="stMarkdownContainer"] a:hover 
 .header-logo {
     font-size: 1.75rem;
     font-weight: 800;
-    color: #ffffff;
+    color: #ffffff !important;
     letter-spacing: -0.5px;
     line-height: 1.1;
 }
 
 .header-tagline {
     font-size: 0.85rem;
-    color: #93c5fd;
+    color: #93c5fd !important;
     font-weight: 500;
     margin-top: 2px;
 }
@@ -173,7 +173,7 @@ section[data-testid="stSidebar"] div[data-testid="stMarkdownContainer"] a:hover 
     align-items: center;
     gap: 8px;
     font-size: 0.78rem;
-    color: #34d399;
+    color: #34d399 !important;
     background: rgba(16, 185, 129, 0.12);
     border: 1px solid rgba(16, 185, 129, 0.3);
     padding: 6px 14px;
@@ -598,8 +598,7 @@ div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] h
 div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] h4,
 div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] h5,
 div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] p,
-div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] li,
-div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] span {
+div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] li {
     color: var(--slate-800) !important;
 }
 
