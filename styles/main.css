@@ -81,6 +81,18 @@ section[data-testid="stSidebar"] > div {
     padding-top: 1.25rem;
 }
 
+/* Force dark text on all sidebar markdown elements regardless of Streamlit theme */
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] h4,
+section[data-testid="stSidebar"] h5,
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] div[data-testid="stMarkdownContainer"] * {
+    color: var(--slate-800) !important;
+}
+
 /* ─── Header Banner ─── */
 .header-banner {
     background: var(--header-gradient);
@@ -378,6 +390,24 @@ section[data-testid="stSidebar"] > div {
     color: var(--slate-900);
     font-weight: 700;
     margin-top: 3px;
+}
+
+/* ─── Empty State ─── */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 1rem 0.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--slate-500) !important;
+    font-weight: 500;
+}
+
+.empty-icon {
+    font-size: 1.5rem;
+    margin-bottom: 2px;
 }
 
 /* ─── Sidebar History Buttons ─── */
