@@ -13,6 +13,12 @@ from graph.builder import DraftronGraph
 from graph import PROJECT_ROOT
 from graph.nodes.self_critique_node import MIN_WORDS, MAX_WORDS
 from models.router import DRAFT_MODEL
+import os
+
+missing = [k for k in ("GROQ_API_KEY",) if not os.getenv(k)]
+if missing:
+    st.error(f"Missing required secret(s): {', '.join(missing)}. Set them in App settings → Secrets.")
+    st.stop()
 
 missing = [k for k in ("GROQ_API_KEY",) if not os.getenv(k)]
 if missing:
