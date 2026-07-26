@@ -1,0 +1,5 @@
+Backend Engineer — Nile Fintech
+
+We need a backend engineer to help build out our payments infrastructure. Python
+and SQL experience required. You'll work with our small engineering team on API
+design and data pipelines. Remote-friendly, Cairo timezone preferred.

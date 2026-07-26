@@ -1,0 +1,124 @@
+{
+  "name": "Ahmed Yusri",
+  "title": "AI Engineer",
+  "tagline": "Multi-Agent Systems | RAG Pipelines | Edge AI",
+  "location": "Giza, Egypt",
+  "contact": {
+    "email": "ahmedyusri31@gmail.com",
+    "phone": "+20 111 095 6345",
+    "linkedin": "https://www.linkedin.com/in/ahmed-yusri/",
+    "github": "https://github.com/AhmedYusri54",
+    "portfolio": "https://huggingface.co/spaces/AhmedYusri/career_conversation"
+  },
+  "summary": "AI Engineer specializing in multi-agent orchestration and production RAG pipelines, with demonstrated experience building stateful LangGraph workflows, multimodal retrieval systems, and edge-AI voice agents from architecture through live deployment. Currently completing a B.Sc. in Computer Engineering (GPA 3.85) with a graduation project integrating OpenAI Whisper, Mistral LLM inference, and IoT sensor telemetry on resource-constrained edge hardware. Certified by Oracle Cloud (GenAI Professional), AWS, IBM, and LangChain Academy. Ships end-to-end: system design, RAG pipeline construction, inference API serving, and Streamlit/Gradio deployment.",
+
+  "skills": {
+    "ai_agentic_systems": ["LangChain", "LangGraph", "CrewAI", "OpenAI Agents SDK", "RAG Pipelines", "Tool Calling", "Vector Search (FAISS)", "Vector Search (Chroma)", "Prompt Engineering", "OpenAI API", "Hugging Face Transformers", "Mistral LLM"],
+    "ml_engineering": ["Python (Advanced)", "SQL", "NumPy", "Pandas", "Scikit-learn", "SciPy", "Pydantic", "Hyperparameter Tuning"],
+    "deep_learning": ["PyTorch", "TensorFlow", "XGBoost", "CatBoost", "CNNs", "RNNs", "LSTMs", "Transfer Learning", "Fine-tuning (RoBERTa, BERT)"],
+    "mlops_cloud": ["Docker", "Git/GitHub", "LangSmith", "CI/CD", "FastAPI", "Streamlit", "Gradio", "Model Serving", "AWS (S3, Lambda)"],
+    "voice_edge_ai": ["LiveKit", "OpenAI Whisper", "WebRTC", "Text-to-Speech (TTS)", "Edge Hardware Optimization", "HX711 Sensor Integration"]
+  },
+
+  "certifications": [
+    {"name": "Ambient Agents with LangGraph", "issuer": "LangChain Academy", "date": "2026-05"},
+    {"name": "Deep Agent", "issuer": "LangChain Academy", "date": "2026-05"},
+    {"name": "AWS AI Practitioner", "issuer": "Amazon Web Services", "date": "2026-03"},
+    {"name": "Oracle Cloud Infrastructure 2025 Generative AI Professional", "issuer": "Oracle", "date": "2025-10"},
+    {"name": "Agentic AI with LangChain and LangGraph", "issuer": "IBM & Coursera", "date": "2025-08"},
+    {"name": "Natural Language Processing Specialization", "issuer": "NTI", "date": "2025-09"},
+    {"name": "Fundamentals of AI Agents", "issuer": "Hugging Face", "date": "2025-05"},
+    {"name": "Machine Learning Engineer Professional Certificate", "issuer": "Coursera", "date": "2024-02"}
+  ],
+
+  "projects": [
+    {
+      "id": "chemistry_voice_tutor",
+      "name": "Chemistry Voice Tutor (B.Sc. Graduation Project)",
+      "type": "Edge AI Agent",
+      "org": "May University in Cairo",
+      "duration": "Oct 2025 – Present",
+      "status": "Active development",
+      "url": null,
+      "tags": ["LiveKit", "OpenAI Whisper", "Mistral LLM", "RAG", "WebRTC", "HX711 IoT Sensors", "edge AI", "voice AI"],
+      "highlights": [
+        "Real-time voice AI agent targeting sub-200ms end-to-end latency on edge hardware, coordinating OpenAI Whisper (STT), Mistral LLM inference, and LiveKit WebRTC in a unified low-resource pipeline.",
+        "Context-aware RAG pipeline with vector embeddings and domain-specific prompt engineering to ground LLM responses in verified chemistry knowledge.",
+        "Bridged live HX711 sensor telemetry into the AI inference loop so the agent reasons about a student's actual lab measurements rather than hypothetical inputs."
+      ]
+    },
+    {
+      "id": "agentic_rag_research_assistant",
+      "name": "Agentic RAG Research Assistant",
+      "type": "Independent Project",
+      "duration": "Apr 2025 – Present",
+      "url": "https://github.com/AhmedYusri54/Agentic-RAG-Assistant/tree/master",
+      "tags": ["LangGraph", "FAISS", "Tavily API", "Ollama", "OpenAI", "Streamlit"],
+      "highlights": [
+        "Stateful LangGraph workflow with three retrieval modes — local FAISS RAG, live Tavily web search, hybrid — controlled by an LLM-powered Query Analyzer that classifies intent before retrieval.",
+        "Automatic inline citation generation and a dedicated Summarizer node, producing source-grounded answers ready to use without further cleanup.",
+        "Zero-code-change configurability between local Ollama and cloud OpenAI backends for cost-aware deployment switching."
+      ]
+    },
+    {
+      "id": "multimodal_enterprise_knowledge_system",
+      "name": "Multimodal Enterprise Knowledge System",
+      "type": "Independent Project",
+      "duration": "Sep – Nov 2025",
+      "url": "https://github.com/AhmedYusri54/Mulitmodal-AI-Educational",
+      "tags": ["LangChain", "OpenAI API", "FAISS", "Streamlit", "Prompt Engineering"],
+      "highlights": [
+        "Multi-modal RAG architecture ingesting and indexing PDFs, images, and DOCX files into a unified FAISS vector store for retrieval across heterogeneous unstructured data.",
+        "Model-routing layer that selects the cheapest model capable of handling each query — roughly 40% lower API token cost versus routing all traffic through the most capable model.",
+        "Asynchronous document ingestion, cutting latency where sequential loading had been the pipeline bottleneck."
+      ]
+    },
+    {
+      "id": "misinformation_detection_engine",
+      "name": "Misinformation Detection Engine",
+      "type": "Independent Project",
+      "duration": "Oct – Nov 2025",
+      "url": "https://finetuning--roberta-base-for-fake-news-classifier-otpwywcmgxyu.streamlit.app/",
+      "tags": ["RoBERTa", "PyTorch", "Hugging Face Transformers", "Fine-tuning", "Streamlit"],
+      "highlights": [
+        "Fine-tuned a RoBERTa transformer for binary fake-news classification with custom head layers, balancing precision/recall on an imbalanced corpus.",
+        "FastAPI inference endpoint with documented request/response schemas, structured for direct integration into content moderation pipelines."
+      ]
+    },
+    {
+      "id": "predictive_attrition_modeling_pipeline",
+      "name": "Predictive Attrition Modeling Pipeline",
+      "type": "Independent Project",
+      "duration": "Jan – Feb 2025",
+      "url": "https://hr-attrition-analysis-machine-learning-model-sg58dluwz5ybv4end.streamlit.app/",
+      "tags": ["XGBoost", "Scikit-learn", "SMOTE", "Grid Search CV", "Streamlit"],
+      "highlights": [
+        "XGBoost attrition classifier on the IBM HR Analytics dataset (~16% positive rate); 0.99 ROC-AUC via SMOTE oversampling, threshold calibration, and Grid Search CV — prioritizing minority-class recall.",
+        "Full pipeline from feature engineering through model export, with an interactive Streamlit interface for threshold adjustment and prediction explanation."
+      ]
+    }
+  ],
+
+  "education": [
+    {
+      "institution": "May University in Cairo",
+      "location": "Giza, Egypt",
+      "degree": "B.Sc. in Computer Engineering",
+      "gpa": "3.86 / 4.0",
+      "duration": "Oct 2022 – Jun 2026 (Expected)",
+      "coursework": ["Advanced Machine Learning", "System Design", "Computer Vision", "Artificial Intelligence"]
+    }
+  ],
+
+  "languages": [
+    {"language": "Arabic", "level": "Native"},
+    {"language": "English", "level": "Professional Proficiency (B2–C1)"}
+  ],
+
+  "letter_generation_notes": {
+    "exclude_education": true,
+    "style": "Short paragraphs. Direct closing. Never claim hands-on production experience with a tool that isn't backed by a project bullet.",
+    "unverified_skills": ["CrewAI", "OpenAI Agents SDK"],
+    "unverified_skills_reason": "Listed under ai_agentic_systems but no project below shows direct usage — self_critique should flag these if draft_generator leans on them as evidence."
+  }
+}

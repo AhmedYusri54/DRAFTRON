@@ -1,0 +1,9 @@
+ML Engineer — Delta Analytics
+
+We're hiring an ML Engineer to join our data science team. Ideal candidates have
+strong Python skills, experience with Scikit-learn or XGBoost, familiarity with
+model deployment (Docker, FastAPI), and a good understanding of SQL. Experience
+with deep learning frameworks like PyTorch is a plus if you have it, though not
+required for this role. Prior experience in fintech or e-commerce analytics would
+also be helpful. You should be comfortable working with imbalanced datasets and
+explaining model decisions to non-technical stakeholders.

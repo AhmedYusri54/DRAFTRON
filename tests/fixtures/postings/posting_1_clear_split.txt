@@ -1,0 +1,19 @@
+AI Agent Engineer — Atlas Learning (EdTech, Remote/Cairo hybrid)
+
+We're building an AI-powered tutoring platform and looking for an AI Agent Engineer
+to design and ship multi-agent workflows that power our virtual lab simulations.
+
+Required:
+- 2+ years of experience with Python in a production setting
+- Hands-on experience with LangGraph or a comparable agent orchestration framework
+- Experience building RAG pipelines with a vector store (FAISS, Chroma, or similar)
+- Comfortable shipping FastAPI or similar inference APIs
+
+Nice to have:
+- Experience with voice AI or real-time audio pipelines (LiveKit, WebRTC)
+- Familiarity with edge deployment or resource-constrained inference
+- Exposure to CrewAI or other multi-agent frameworks
+
+You'll work closely with our curriculum team to turn subject-matter content into
+agent-driven learning experiences. We're a small, fast-moving team — comfortable
+with ambiguity and owning a feature end to end.
