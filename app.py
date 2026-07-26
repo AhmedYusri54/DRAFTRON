@@ -13,17 +13,7 @@ from graph.builder import DraftronGraph
 from graph import PROJECT_ROOT
 from graph.nodes.self_critique_node import MIN_WORDS, MAX_WORDS
 from models.router import DRAFT_MODEL
-import os
 
-missing = [k for k in ("GROQ_API_KEY",) if not os.getenv(k)]
-if missing:
-    st.error(f"Missing required secret(s): {', '.join(missing)}. Set them in App settings → Secrets.")
-    st.stop()
-
-missing = [k for k in ("GROQ_API_KEY",) if not os.getenv(k)]
-if missing:
-    st.error(f"Missing required secret(s): {', '.join(missing)}. Set them in App settings → Secrets.")
-    st.stop()
 # ═══════════════════════════════════════════
 # Page Config
 # ═══════════════════════════════════════════
@@ -420,7 +410,7 @@ def render_input():
         '<div class="card">'
         '<div class="card-header">📄 Paste Job Posting</div>'
         '<div class="card-subtitle">Provide target job description to initialize AI extraction & profile alignment</div>'
-        '</div>',
+        '</div></div>',
         unsafe_allow_html=True,
     )
 
@@ -508,7 +498,7 @@ def render_review():
         '<div class="card">'
         '<div class="card-header">✍️ Draft Cover Letter</div>'
         f'<div class="card-subtitle">Revision #{revision_count} • Human-in-the-Loop Verification</div>'
-        "</div>",
+        "</div></div>",
         unsafe_allow_html=True,
     )
 
@@ -750,7 +740,7 @@ def render_finalized():
     st.markdown(
         '<div class="final-letter-card">'
         '<div class="card-header">✨ Your Finalized Cover Letter</div>'
-        "</div>",
+        "</div></div>",
         unsafe_allow_html=True,
     )
 
@@ -824,7 +814,7 @@ def render_history_detail():
         f'<div class="card">'
         f'<div class="card-header">🏆 Saved Approved Letter: {company}</div>'
         f'<div class="card-subtitle">{role} • Saved on {date}</div>'
-        f'</div>',
+        f'</div></div>',
         unsafe_allow_html=True,
     )
 
