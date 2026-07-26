@@ -520,6 +520,7 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] > button:hover {
     transition: all 0.2s ease !important;
     padding: 1rem !important;
     background: #ffffff !important;
+    color: #1e293b !important;
 }
 
 .stTextArea textarea:focus {
