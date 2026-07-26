@@ -4,11 +4,11 @@
   "tagline": "Multi-Agent Systems | RAG Pipelines | Edge AI",
   "location": "Giza, Egypt",
   "contact": {
-    "email": "ahmedyusri31@gmail.com",
-    "phone": "+20 111 095 6345",
-    "linkedin": "https://www.linkedin.com/in/ahmed-yusri/",
-    "github": "https://github.com/AhmedYusri54",
-    "portfolio": "https://huggingface.co/spaces/AhmedYusri/career_conversation"
+  "email": "you@example.com",
+  "phone": "+00 000 000 0000",
+  "linkedin": "https://www.linkedin.com/in/ahmed-yusri/",
+  "github": "https://github.com/AhmedYusri54",
+  "portfolio": "https://huggingface.co/spaces/AhmedYusri/career_conversation"
   },
   "summary": "AI Engineer specializing in multi-agent orchestration and production RAG pipelines, with demonstrated experience building stateful LangGraph workflows, multimodal retrieval systems, and edge-AI voice agents from architecture through live deployment. Currently completing a B.Sc. in Computer Engineering (GPA 3.85) with a graduation project integrating OpenAI Whisper, Mistral LLM inference, and IoT sensor telemetry on resource-constrained edge hardware. Certified by Oracle Cloud (GenAI Professional), AWS, IBM, and LangChain Academy. Ships end-to-end: system design, RAG pipeline construction, inference API serving, and Streamlit/Gradio deployment.",
 

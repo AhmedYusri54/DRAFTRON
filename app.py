@@ -323,6 +323,7 @@ def render_header():
 
 def render_sidebar():
     with st.sidebar:
+        st.markdown("#### Created by [Ahmed Yusri](https://www.linkedin.com/in/ahmed-yusri)")
         st.markdown("#### ⚡ Pipeline Progress")
         for idx, (num, label) in enumerate(PIPELINE_STEPS):
             status = _step_status(idx)
