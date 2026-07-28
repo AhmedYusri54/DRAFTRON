@@ -672,16 +672,92 @@ div[data-testid="stMainBlockContainer"] div[data-testid="stMarkdownContainer"] l
     color: var(--slate-800) !important;
 }
 
-/* ─── Expander styling ─── */
-/* Target both old and new Streamlit expander header selectors */
-.streamlit-expanderHeader,
+/* ─── Expander Styling (Permanent Fix) ─── */
+/* Streamlit expanders use <details>/<summary> internally.
+   When open or clicked, Streamlit's primaryColor (black in cloud themes)
+   floods the summary background. Every state is explicitly overridden below. */
+
+/* Expander outer container */
+div[data-testid="stExpander"] {
+    border: 1px solid var(--slate-200) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    margin-bottom: 0.75rem !important;
+}
+
+/* The <details> element */
+div[data-testid="stExpander"] details {
+    background: #ffffff !important;
+}
+
+/* The clickable <summary> header bar — all states */
+div[data-testid="stExpander"] details summary,
 div[data-testid="stExpander"] summary,
-div[data-testid="stExpander"] summary p,
-div[data-testid="stExpander"] summary span {
+.streamlit-expanderHeader {
+    background-color: #ffffff !important;
+    color: var(--slate-800) !important;
     font-weight: 700 !important;
     font-size: 0.92rem !important;
+    padding: 0.85rem 1.1rem !important;
+    border-radius: 12px !important;
+    cursor: pointer !important;
+    list-style: none !important;
+    transition: background-color 0.15s ease !important;
+    outline: none !important;
+    border: none !important;
+}
+
+/* Hover state — subtle grey tint, never black */
+div[data-testid="stExpander"] details summary:hover,
+div[data-testid="stExpander"] summary:hover,
+.streamlit-expanderHeader:hover {
+    background-color: var(--slate-50) !important;
+    color: var(--slate-900) !important;
+}
+
+/* Active (click) state — light blue tint, never black */
+div[data-testid="stExpander"] details summary:active,
+div[data-testid="stExpander"] summary:active,
+.streamlit-expanderHeader:active {
+    background-color: var(--primary-50) !important;
+    color: var(--primary-700) !important;
+}
+
+/* Focus state — blue ring only, no dark fill */
+div[data-testid="stExpander"] details summary:focus,
+div[data-testid="stExpander"] summary:focus,
+.streamlit-expanderHeader:focus {
+    background-color: #ffffff !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Open/expanded state — white header, no black */
+div[data-testid="stExpander"] details[open] summary,
+div[data-testid="stExpander"] details[open] > summary {
+    background-color: #ffffff !important;
+    color: var(--slate-900) !important;
+    border-bottom: 1px solid var(--slate-100) !important;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+/* Text nodes inside summary */
+div[data-testid="stExpander"] summary p,
+div[data-testid="stExpander"] summary span,
+div[data-testid="stExpander"] summary div,
+.streamlit-expanderHeader p,
+.streamlit-expanderHeader span {
     color: var(--slate-800) !important;
-    border-radius: 8px !important;
+    background: transparent !important;
+}
+
+/* Expander body content area */
+div[data-testid="stExpander"] details > div,
+div[data-testid="stExpanderDetails"] {
+    background-color: #ffffff !important;
+    padding: 0.75rem 1.1rem 1rem !important;
 }
 
 /* ─── Streamlit Widget Overrides ─── */
