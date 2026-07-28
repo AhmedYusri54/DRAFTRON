@@ -1,3 +1,4 @@
+
 """
 DRAFTRON — AI Cover Letter Agent
 Streamlit UI with human-in-the-loop review via LangGraph interrupt().
@@ -13,6 +14,7 @@ from graph.builder import DraftronGraph
 from graph import PROJECT_ROOT
 from graph.nodes.self_critique_node import MIN_WORDS, MAX_WORDS
 from models.router import DRAFT_MODEL
+import os 
 
 # ═══════════════════════════════════════════
 # Page Config
@@ -92,6 +94,29 @@ def _load_history() -> list[dict]:
     return entries
 
 
+def _extract_interrupt(result: dict) -> None:
+    payload = result["__interrupt__"][0].value
+    st.session_state.draft = payload["draft"]
+    st.session_state.critique = payload["critique"]
+    st.session_state.revision_count = payload.get("revision_count", 0)
+
+    st.session_state["_reset_ack_pending"] = True
+
+    st.session_state["feedback_suggestion"] = _build_suggested_feedback(
+        payload["critique"], payload["draft"]
+    )
+
+    config = {"configurable": {"thread_id": st.session_state.thread_id}}
+    try:
+        state = app.graph.get_state(config)
+        st.session_state.company_name = state.values.get("company_name", "")
+        st.session_state.role_title = state.values.get("role_title", "")
+    except Exception:
+        pass
+
+    st.session_state.current_step = "review"
+
+
 def _reset_session():
     """Clear all state for a fresh generation."""
     st.session_state.thread_id = str(uuid.uuid4())
@@ -109,8 +134,9 @@ def _reset_session():
     st.session_state.final_letter = ""
     st.session_state.feedback_history = []
     st.session_state.error_message = ""
-    st.session_state.approve_override_ack = False
-    st.session_state.feedback_input = ""
+    st.session_state.pop("approve_override_ack", None)
+    st.session_state.pop("feedback_input", None)
+    st.session_state.pop("feedback_suggestion", None)
 
 
 def _word_count(text: str) -> int:
@@ -195,32 +221,6 @@ def _handle_pipeline_error(e: Exception) -> str:
         "logged and is on us, not something you did — please try again in a "
         "moment."
     )
-
-
-
-    """Pull draft/critique/revision_count from interrupt payload & fetch metadata."""
-    payload = result["__interrupt__"][0].value
-    st.session_state.draft = payload["draft"]
-    st.session_state.critique = payload["critique"]
-    st.session_state.revision_count = payload.get("revision_count", 0)
-    # Every new draft needs its own acknowledgment -- don't let checking this
-    # for one flagged draft silently carry over to a later, different one.
-    st.session_state.approve_override_ack = False
-    # Same reasoning for the suggested feedback: always regenerated fresh for
-    # THIS draft's actual flags, never left over from a previous round.
-    st.session_state.feedback_input = _build_suggested_feedback(
-        payload["critique"], payload["draft"]
-    )
-
-    config = {"configurable": {"thread_id": st.session_state.thread_id}}
-    try:
-        state = app.graph.get_state(config)
-        st.session_state.company_name = state.values.get("company_name", "")
-        st.session_state.role_title = state.values.get("role_title", "")
-    except Exception:
-        pass
-
-    st.session_state.current_step = "review"
 
 
 # ═══════════════════════════════════════════
@@ -450,7 +450,7 @@ def render_input():
         key="generate_btn",
     ):
         st.session_state.error_message = ""
-        
+
         # Initialize Execution Path Trace
         st.session_state.node_execution_trace = [
             {"node": "intake", "label": "1. Job Intake", "status": "completed"},
@@ -485,6 +485,9 @@ def render_input():
 # ═══════════════════════════════════════════
 
 def render_review():
+    if st.session_state.pop("_reset_ack_pending", False):
+        st.session_state.pop("approve_override_ack", None)
+        
     draft = st.session_state.draft
     critique = st.session_state.critique
     revision_count = st.session_state.revision_count
@@ -598,14 +601,23 @@ def render_review():
     # ── Feedback Area ──
     st.markdown("---")
 
-    if not passes and st.session_state.feedback_input:
+    # Inject the pre-fill suggestion BEFORE the text_area widget registers
+    # the key. At this point in the render cycle the key is not yet owned by
+    # any widget, so pop+set is legal and Streamlit will display our value.
+    if "feedback_suggestion" in st.session_state:
+        st.session_state.pop("feedback_input", None)
+        st.session_state["feedback_input"] = st.session_state.pop("feedback_suggestion")
+
+    if not passes and st.session_state.get("feedback_input"):
         st.caption(
             "💡 The box below is pre-filled from the flags above, as a starting "
             "point — not something you have to use as-is. Edit it, add your own "
             "notes, or clear it and write your own instructions instead."
         )
         if st.button("🧹 Clear suggestion, write my own", key="clear_suggestion_btn"):
-            st.session_state.feedback_input = ""
+            # Pop both keys — widget will re-render empty on next run
+            st.session_state.pop("feedback_input", None)
+            st.session_state.pop("feedback_suggestion", None)
             st.rerun()
 
     feedback = st.text_area(
