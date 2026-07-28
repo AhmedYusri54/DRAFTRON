@@ -2,9 +2,7 @@
 import os
 from langchain_groq import ChatGroq
 from langchain_openai import ChatOpenAI
-from dotenv import load_dotenv
 
-load_dotenv(override=True)
 
 GROQ_MODEL = "llama-3.3-70b-versatile"
 
