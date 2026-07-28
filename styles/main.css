@@ -579,18 +579,74 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] > button:hover {
     line-height: 1.5;
 }
 
-/* ─── Checkbox Fix ─── */
-/* Prevent the broad color cascade from turning the checkbox into a black square */
-div[data-testid="stCheckbox"] label {
-    color: var(--slate-800) !important;
-}
+/* ─── Checkbox Fix (Permanent) ─── */
+/* Streamlit renders a hidden <input> + a custom <span> overlay with an SVG inside.
+   When clicked/checked, Streamlit's primaryColor fills the span background.
+   If primaryColor is black (cloud theme default), the box turns solid black.
+   This block overrides every layer and state so it always appears as a clean
+   blue-filled box with a white checkmark. */
+
+/* Hide the native input entirely — Streamlit uses a custom visual */
 div[data-testid="stCheckbox"] input[type="checkbox"] {
     accent-color: var(--primary-600) !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    position: absolute !important;
 }
-/* Ensure SVG checkmark icon inside the checkbox widget is visible (not black on black) */
+
+/* The custom checkbox visual span */
+div[data-testid="stCheckbox"] label > span:first-of-type,
+div[data-testid="stCheckbox"] label > div:first-of-type,
+div[data-testid="stCheckbox"] span[data-baseweb="checkbox"],
+div[data-testid="stCheckbox"] div[data-baseweb="checkbox"] {
+    border: 2px solid var(--slate-300) !important;
+    border-radius: 5px !important;
+    background-color: #ffffff !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+/* Checked state — blue fill, white border */
+div[data-testid="stCheckbox"] input[type="checkbox"]:checked ~ span,
+div[data-testid="stCheckbox"] input[type="checkbox"]:checked ~ div,
+div[data-testid="stCheckbox"] [data-checked="true"] span[data-baseweb="checkbox"],
+div[data-testid="stCheckbox"] [data-checked="true"] div[data-baseweb="checkbox"],
+div[data-testid="stCheckbox"] label:has(input:checked) > span:first-of-type,
+div[data-testid="stCheckbox"] label:has(input:checked) > div:first-of-type {
+    background-color: var(--primary-600) !important;
+    border-color: var(--primary-600) !important;
+}
+
+/* Active / focus state — never black */
+div[data-testid="stCheckbox"] label:active > span:first-of-type,
+div[data-testid="stCheckbox"] label:active > div:first-of-type,
+div[data-testid="stCheckbox"] label:focus-within > span:first-of-type,
+div[data-testid="stCheckbox"] label:focus-within > div:first-of-type {
+    background-color: var(--primary-100) !important;
+    border-color: var(--primary-600) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2) !important;
+    outline: none !important;
+}
+
+/* SVG checkmark — always white so it shows on the blue fill */
 div[data-testid="stCheckbox"] svg {
-    color: var(--primary-600) !important;
-    fill: var(--primary-600) !important;
+    color: #ffffff !important;
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+}
+div[data-testid="stCheckbox"] svg path {
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+}
+
+/* Label text — always dark */
+div[data-testid="stCheckbox"] label {
+    color: var(--slate-800) !important;
+    cursor: pointer !important;
+}
+div[data-testid="stCheckbox"] label p,
+div[data-testid="stCheckbox"] label span:not(:first-of-type) {
+    color: var(--slate-800) !important;
 }
 
 /* ─── Global Main Content Text Color Lock ─── */
