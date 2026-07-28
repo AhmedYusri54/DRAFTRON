@@ -6,7 +6,7 @@ from langchain_openai import ChatOpenAI
 
 GROQ_MODEL = "llama-3.3-70b-versatile"
 
-GEN_PROVIDER = os.getenv("DRAFTRON_GEN_PROVIDER", "openai")  # "openai" or "groq"
+GEN_PROVIDER = os.getenv("DRAFTRON_GEN_PROVIDER", "groq")  
 DRAFT_MODEL = os.getenv("DRAFTRON_GEN_MODEL", GROQ_MODEL)
 
 
