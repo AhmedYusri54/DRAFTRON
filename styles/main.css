@@ -579,6 +579,20 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] > button:hover {
     line-height: 1.5;
 }
 
+/* ─── Checkbox Fix ─── */
+/* Prevent the broad color cascade from turning the checkbox into a black square */
+div[data-testid="stCheckbox"] label {
+    color: var(--slate-800) !important;
+}
+div[data-testid="stCheckbox"] input[type="checkbox"] {
+    accent-color: var(--primary-600) !important;
+}
+/* Ensure SVG checkmark icon inside the checkbox widget is visible (not black on black) */
+div[data-testid="stCheckbox"] svg {
+    color: var(--primary-600) !important;
+    fill: var(--primary-600) !important;
+}
+
 /* ─── Global Main Content Text Color Lock ─── */
 /* Prevents Streamlit Cloud's dark/custom theme from turning any
    markdown text white in the main content area */
@@ -641,6 +655,13 @@ div[data-testid="stExpander"] summary span {
     padding: 0.65rem 1.6rem !important;
 }
 
+/* Prevent color cascade from polluting button inner text */
+.stButton > button p,
+.stButton > button span,
+.stButton > button div {
+    color: inherit !important;
+}
+
 /* Primary Button Styling */
 .stButton > button[kind="primary"],
 .stButton > button[data-testid="stBaseButton-primary"] {
@@ -670,6 +691,15 @@ div[data-testid="stExpander"] summary span {
     background: var(--slate-50) !important;
     color: var(--slate-900) !important;
     transform: translateY(-1px) !important;
+}
+
+/* Tertiary / custom dark buttons (e.g. "Copy Raw Text") — force white text */
+.stButton > button:not([kind="secondary"]):not([data-testid="stBaseButton-secondary"]):not([kind="primary"]):not([data-testid="stBaseButton-primary"]) {
+    color: #ffffff !important;
+}
+.stButton > button:not([kind="secondary"]):not([data-testid="stBaseButton-secondary"]):not([kind="primary"]):not([data-testid="stBaseButton-primary"]) p,
+.stButton > button:not([kind="secondary"]):not([data-testid="stBaseButton-secondary"]):not([kind="primary"]):not([data-testid="stBaseButton-primary"]) span {
+    color: #ffffff !important;
 }
 
 /* Download Button Styling */
