@@ -228,10 +228,6 @@ listed but can't yet back up with a real project (`unverified_skills`).
 Automated resume ingestion is intentionally out of scope for this project —
 see [Known limitations](#known-limitations).
 
-> ⚠️ If this repo is public, redact the `contact.email` and `contact.phone`
-> fields in `profile.json` before committing — nothing in the pipeline
-> actually reads them, so redacting them costs nothing functionally.
-
 ## Usage
 
 ```bash
