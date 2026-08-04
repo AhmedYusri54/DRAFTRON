@@ -32,72 +32,89 @@
   ],
 
   "projects": [
-    {
-      "id": "chemistry_voice_tutor",
-      "name": "Chemistry Voice Tutor (B.Sc. Graduation Project)",
-      "type": "Edge AI Agent",
-      "org": "May University in Cairo",
-      "duration": "Oct 2025 – Present",
-      "status": "Active development",
-      "url": null,
-      "tags": ["LiveKit", "OpenAI Whisper", "Mistral LLM", "RAG", "WebRTC", "HX711 IoT Sensors", "edge AI", "voice AI"],
-      "highlights": [
-        "Real-time voice AI agent targeting sub-200ms end-to-end latency on edge hardware, coordinating OpenAI Whisper (STT), Mistral LLM inference, and LiveKit WebRTC in a unified low-resource pipeline.",
-        "Context-aware RAG pipeline with vector embeddings and domain-specific prompt engineering to ground LLM responses in verified chemistry knowledge.",
-        "Bridged live HX711 sensor telemetry into the AI inference loop so the agent reasons about a student's actual lab measurements rather than hypothetical inputs."
-      ]
-    },
-    {
-      "id": "agentic_rag_research_assistant",
-      "name": "Agentic RAG Research Assistant",
-      "type": "Independent Project",
-      "duration": "Apr 2025 – Present",
-      "url": "https://github.com/AhmedYusri54/Agentic-RAG-Assistant/tree/master",
-      "tags": ["LangGraph", "FAISS", "Tavily API", "Ollama", "OpenAI", "Streamlit"],
-      "highlights": [
-        "Stateful LangGraph workflow with three retrieval modes — local FAISS RAG, live Tavily web search, hybrid — controlled by an LLM-powered Query Analyzer that classifies intent before retrieval.",
-        "Automatic inline citation generation and a dedicated Summarizer node, producing source-grounded answers ready to use without further cleanup.",
-        "Zero-code-change configurability between local Ollama and cloud OpenAI backends for cost-aware deployment switching."
-      ]
-    },
-    {
-      "id": "multimodal_enterprise_knowledge_system",
-      "name": "Multimodal Enterprise Knowledge System",
-      "type": "Independent Project",
-      "duration": "Sep – Nov 2025",
-      "url": "https://github.com/AhmedYusri54/Mulitmodal-AI-Educational",
-      "tags": ["LangChain", "OpenAI API", "FAISS", "Streamlit", "Prompt Engineering"],
-      "highlights": [
-        "Multi-modal RAG architecture ingesting and indexing PDFs, images, and DOCX files into a unified FAISS vector store for retrieval across heterogeneous unstructured data.",
-        "Model-routing layer that selects the cheapest model capable of handling each query — roughly 40% lower API token cost versus routing all traffic through the most capable model.",
-        "Asynchronous document ingestion, cutting latency where sequential loading had been the pipeline bottleneck."
-      ]
-    },
-    {
-      "id": "misinformation_detection_engine",
-      "name": "Misinformation Detection Engine",
-      "type": "Independent Project",
-      "duration": "Oct – Nov 2025",
-      "url": "https://finetuning--roberta-base-for-fake-news-classifier-otpwywcmgxyu.streamlit.app/",
-      "tags": ["RoBERTa", "PyTorch", "Hugging Face Transformers", "Fine-tuning", "Streamlit"],
-      "highlights": [
-        "Fine-tuned a RoBERTa transformer for binary fake-news classification with custom head layers, balancing precision/recall on an imbalanced corpus.",
-        "FastAPI inference endpoint with documented request/response schemas, structured for direct integration into content moderation pipelines."
-      ]
-    },
-    {
-      "id": "predictive_attrition_modeling_pipeline",
-      "name": "Predictive Attrition Modeling Pipeline",
-      "type": "Independent Project",
-      "duration": "Jan – Feb 2025",
-      "url": "https://hr-attrition-analysis-machine-learning-model-sg58dluwz5ybv4end.streamlit.app/",
-      "tags": ["XGBoost", "Scikit-learn", "SMOTE", "Grid Search CV", "Streamlit"],
-      "highlights": [
-        "XGBoost attrition classifier on the IBM HR Analytics dataset (~16% positive rate); 0.99 ROC-AUC via SMOTE oversampling, threshold calibration, and Grid Search CV — prioritizing minority-class recall.",
-        "Full pipeline from feature engineering through model export, with an interactive Streamlit interface for threshold adjustment and prediction explanation."
-      ]
-    }
-  ],
+  {
+    "id": "draftron",
+    "name": "DRAFTRON",
+    "type": "Independent Project",
+    "duration": "Jul 2026",
+    "status": "Completed",
+    "url": "https://draftron-bhwpeqqeepvfvy24rfhyis.streamlit.app/",
+    "tags": [
+      "LangGraph",
+      "Human-in-the-Loop (HITL)",
+      "Groq",
+      "OpenAI",
+      "Streamlit"
+    ],
+    "highlights": [
+      "Built a LangGraph cover-letter generation agent with interrupt()-based Human-in-the-Loop checkpoints, allowing users to review and redirect the workflow before final generation.",
+      "Architected cost-aware model routing that uses Groq Llama 3.3 70B for extraction, matching, strategy, and critique, while reserving GPT-5 mini for draft generation and revision to optimize quality and API cost.",
+      "Designed the core graph with explicit start() and resume() methods from the beginning, making it reusable as a callable sub-agent inside future multi-agent supervisor architectures."
+    ]
+  },
+  {
+    "id": "lapis_multi_agent_voice_tutor",
+    "name": "LAPIS — Multi-Agent AI Voice Tutor for a Virtual Chemistry Lab",
+    "type": "B.Sc. Graduation Project",
+    "org": "May University in Cairo",
+    "duration": "Oct 2025 – Jun 2026",
+    "status": "Completed",
+    "url": null,
+    "tags": [
+      "LiveKit Agents SDK",
+      "Google Gemini Live",
+      "Multi-Agent Orchestration",
+      "RAG",
+      "WebRTC",
+      "Simli Avatar"
+    ],
+    "highlights": [
+      "Architected a three-agent LiveKit system (Coordinator, LabTutor, Researcher) that shares session state and performs real-time agent handoffs while enforcing a strict sequential laboratory workflow.",
+      "Built a real-time Egyptian-Arabic voice tutor using Google Gemini Live speech-to-speech, a Simli lip-synced avatar, and a lightweight RAG pipeline powered by OpenAI embeddings and cosine similarity.",
+      "Designed an 11-method RPC protocol over LiveKit data channels to synchronize the browser-based chemistry lab with the AI backend, including automatic grading through numeric tolerance validation and similarity-based observation matching.",
+      "The project was preceded by a resource-constrained edge AI prototype using OpenAI Whisper, on-device Mistral inference, and HX711 sensor telemetry, whose latency and hardware lessons directly influenced the final multi-agent architecture."
+    ]
+  },
+  {
+    "id": "agentic_rag_research_assistant",
+    "name": "Agentic RAG Research Assistant",
+    "type": "Independent Project",
+    "duration": "Apr 2025",
+    "url": "https://github.com/AhmedYusri54/Agentic-RAG-Assistant/tree/master",
+    "tags": [
+      "LangGraph",
+      "FAISS",
+      "Tavily API",
+      "Ollama",
+      "OpenAI",
+      "Streamlit"
+    ],
+    "highlights": [
+      "Designed a stateful LangGraph workflow with three retrieval modes — local FAISS RAG, live Tavily web search, and hybrid retrieval — controlled by an LLM-powered Query Analyzer.",
+      "Implemented automatic inline citation generation and a dedicated summarization node to produce source-grounded research answers with reduced hallucination risk.",
+      "Engineered zero-code-change configurability between local Ollama and cloud OpenAI backends for cost-aware deployment switching."
+    ]
+  },
+  {
+    "id": "multimodal_enterprise_knowledge_system",
+    "name": "Multimodal Enterprise Knowledge System",
+    "type": "Independent Project",
+    "duration": "Sep – Nov 2025",
+    "url": "https://github.com/AhmedYusri54/Mulitmodal-AI-Educational",
+    "tags": [
+      "LangChain",
+      "OpenAI API",
+      "FAISS",
+      "Streamlit",
+      "Prompt Engineering"
+    ],
+    "highlights": [
+      "Engineered a multimodal RAG architecture that ingests PDFs, images, and DOCX files into a unified FAISS vector store for retrieval across heterogeneous knowledge sources.",
+      "Built an intelligent model-routing layer that dynamically selects the least expensive capable model, reducing API token cost by approximately 40%.",
+      "Optimized document ingestion with asynchronous processing, significantly reducing latency for large knowledge bases."
+    ]
+  }
+],
 
   "education": [
     {
